@@ -1,0 +1,32 @@
+﻿<Window x:Class="Wpf2.DockWindowTest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf2"
+        mc:Ignorable="d"
+        Title="DockWindowTest" Height="450" Width="800">
+    <DockPanel LastChildFill="True">
+        <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+            <Button Content="1" DockPanel.Dock="Top" Padding="15 5" Margin="2"/>
+            <Button Content="1" DockPanel.Dock="Top" Padding="15 5" Margin="2"/>
+            <Button Content="1" DockPanel.Dock="Top" Padding="15 5" Margin="2"/>
+            <Button Content="1" DockPanel.Dock="Top" Padding="15 5" Margin="2"/>
+            <Button Content="1" DockPanel.Dock="Top" Padding="15 5" Margin="2"/>
+        </StackPanel>
+        <Button Content="Top 1" DockPanel.Dock="Top"/>
+        
+        <Button Content="Left 1" DockPanel.Dock="Left"/>
+        <Button Content="Right 1" DockPanel.Dock="Right"/>
+        <Button Content="Right 2" DockPanel.Dock="Right"/>
+        <Button Content="Bottom 1" DockPanel.Dock="Bottom"/>
+        <Button Content="Left 2" DockPanel.Dock="Left"/>
+        <Button Content="Right 3" DockPanel.Dock="Right"/>
+        <Button Content="Top 2" DockPanel.Dock="Top"/>
+        <Button Content="Bottom 2" DockPanel.Dock="Bottom"/>
+        <Button Content="Bottom 3" DockPanel.Dock="Bottom"/>
+        <Button Content="Left 3" DockPanel.Dock="Left"/>
+
+        <TextBox Text="Test" Margin="5" Background="AliceBlue"/>
+    </DockPanel>
+</Window>

@@ -1,0 +1,99 @@
+﻿<Window x:Class="Wpf2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf2"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="600"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" MinWidth="100"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="*" MinWidth="100"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <GridSplitter Grid.Column="2" Width="5" 
+                      Background="CadetBlue" Grid.RowSpan="4"
+                      VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+
+        <Border x:Name="border1" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3"
+                BorderBrush="Aqua" BorderThickness="3" Margin="5" Background="Yellow"
+                Visibility="Collapsed" Width="100"/>
+        
+        <Border Grid.Column="1" BorderBrush="Aqua" BorderThickness="3" Margin="5" Background="White"/>
+        
+        <Border Grid.Column="3" BorderBrush="Aqua" BorderThickness="3" Margin="5" Background="Bisque"/>
+        
+        <Border Grid.Column="4" Grid.RowSpan="3" 
+                BorderBrush="Aqua" BorderThickness="3" 
+                Margin="5" Background="Aquamarine">
+            <StackPanel Orientation="Vertical" Background="Green" Width="80">
+                <Button x:Name="btnShow" Content="Show" Click="btnShow_Click" Margin="3"/>
+                <Button x:Name="btnHide" Content="Hide" Click="btnHide_Click" Margin="3"/>
+                <Button x:Name="btnDockTest" Click="btnDockTest_Click" Content="Dock" Margin="3"/>
+                <Button Content="Test" Margin="3"/>
+                <Button Content="Test" Margin="3"/>
+                <Button Content="Test" Margin="3"/>
+                <Button Content="Test" Margin="3"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Column="1" Grid.Row="1" 
+                Grid.RowSpan="2" 
+                BorderBrush="Aqua" 
+                BorderThickness="3" Margin="5" Background="BurlyWood"
+                CornerRadius="10">
+            <WrapPanel Orientation="Vertical" ItemHeight="30" ItemWidth="80">
+                <Button Content="Test 1" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 2" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 3" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 4" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 5" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 6" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 7" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 8" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 9" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 10" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 11" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 12" Background="Aquamarine" Padding="10 3"/>
+                <Button Content="Test 13" Background="Aquamarine" Padding="10 3"/>
+            </WrapPanel>
+        </Border>
+
+        <Border Grid.Column="3" Grid.Row="1" 
+                Grid.RowSpan="2" 
+                BorderBrush="Aqua" CornerRadius="10"
+                BorderThickness="3" Margin="5" Background="BurlyWood">
+            <UniformGrid Columns="2" Rows="4">
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+                <Button Content="test"/>
+            </UniformGrid>
+        </Border>
+
+        <Button x:Name="btnOk" Content="Ok" Margin="10 5"
+                Grid.Column="0" Grid.Row="3"
+                Grid.ColumnSpan ="2"/>
+        
+        <Button x:Name="btnCancel" Content="Cancel" Margin="10 5"
+                Grid.Column="3" Grid.Row="3"
+                Grid.ColumnSpan ="2"/>
+    </Grid>
+</Window>
