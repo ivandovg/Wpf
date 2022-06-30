@@ -1,0 +1,73 @@
+﻿<Window x:Class="Wpf3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Button Margin="5" MinHeight="30">
+            <StackPanel>
+                <TextBox Text="test" Margin="20 5"/>
+                <TextBox AcceptsReturn="True" Text="test" 
+                         Margin="20 5" Height="50" Width="150"
+                         VerticalScrollBarVisibility="Auto"
+                         TextWrapping="Wrap"/>
+                <Label Content="_Username" Target="{Binding ElementName=edUsername}"/>
+                <Border Margin="20 5" 
+                        BorderBrush="Aqua" 
+                        BorderThickness="3" CornerRadius="10"
+                        Background="White">
+                    <TextBox Text="user" Margin="3" x:Name="edUsername"/>
+                </Border>
+                <Button Content="Check" Margin="20 5" Padding="15 2"/>
+            </StackPanel>
+        </Button>
+
+        <TextBlock Grid.Row="1" Margin="5" 
+                   Text="Test text" FontSize="16" Foreground="Blue"/>
+
+        <TextBlock Grid.Row="2" Margin="5" 
+                   FontSize="16" Foreground="DarkCyan"
+                   TextWrapping="Wrap" TextAlignment="Center">
+            
+            <Run FontWeight="Bold" Foreground="Red">Test text</Run> 
+            
+            <LineBreak/>
+            
+            <Run FontStyle="Italic">
+                Чтобы как-то взаимодействовать с пользователем, </Run>
+            
+            <LineBreak/>
+            <Run>получать от пользователя ввод с клавиатуры или мыши и </Run>
+            использовать введенные данные в программе, нужны элементы 
+            управления. WPF предлагает богатый стандартный набор 
+            элементов управления.
+            <LineBreak/>
+            <Hyperlink NavigateUri="http://www.google.com" Click="Hyperlink_Click">
+                Go to GOOGLE
+            </Hyperlink>
+        </TextBlock>
+
+        <ListBox Grid.Row="3" Margin="5" Background="Bisque" 
+                 SelectionMode="Extended">
+            
+            <TextBlock Text="test"/>
+            <Button Content="Test button"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="1" Margin="5" Padding="5"></Button>
+                <Button Content="1" Margin="5" Padding="5"></Button>
+                <Button Content="1" Margin="5" Padding="5"></Button>
+                <Button Content="1" Margin="5" Padding="5"></Button>
+            </StackPanel>
+        </ListBox>
+    </Grid>
+</Window>
