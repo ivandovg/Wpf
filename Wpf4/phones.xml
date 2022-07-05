@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<phones>
+	<phone>
+		<id>1</id>
+		<title>Lumia</title>
+		<company>Microsoft</company>
+	</phone>
+	<phone>
+		<id>2</id>
+		<title>iPhone</title>
+		<company>Apple</company>
+	</phone>
+	<phone>
+		<id>3</id>
+		<title>Meizu Pro</title>
+		<company>Meizu</company>
+	</phone>
+</phones>
