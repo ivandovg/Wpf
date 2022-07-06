@@ -10,18 +10,35 @@
     <Window.Resources>
         <local:DoubleToColorConverter x:Key="dcBrush"/>
 
+        <ControlTemplate x:Key="InputErrorTemplate">
+            <DockPanel>
+                <Ellipse DockPanel.Dock="Right" Margin="2,0" 
+             ToolTip="Contains invalid data"
+             Width="10" Height="10">
+                    <Ellipse.Fill>
+                        <LinearGradientBrush>
+                            <GradientStop Color="#11FF1111" Offset="0" />
+                            <GradientStop Color="#FFFF0000" Offset="1" />
+                        </LinearGradientBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <AdornedElementPlaceholder />
+            </DockPanel>
+        </ControlTemplate>
+
         <Style TargetType="TextBox">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
                     <Setter Property="ToolTip">
                         <Setter.Value>
-                            <Binding Path="(Validation.Errors).CurrentItem.ErrorContent" 
+                            <Binding Path="(Validation.Errors)[0].ErrorContent" 
                                      RelativeSource="{x:Static RelativeSource.Self}" />
                         </Setter.Value>
                     </Setter>
                 </Trigger>
             </Style.Triggers>
         </Style>
+        
     </Window.Resources>
     
     <Grid>
@@ -47,13 +64,16 @@
 
             <TextBlock Text="Name"/>
             <TextBox x:Name="edName" 
-                     Text="{Binding Name, ValidatesOnExceptions=True, TargetNullValue=none, FallbackValue=fail}"/>
+                     Text="{Binding Name, ValidatesOnExceptions=True, TargetNullValue=none, FallbackValue=fail}"
+                     Validation.ErrorTemplate="{StaticResource InputErrorTemplate}"/>
             
             <TextBlock Text="Category"/>
             <TextBox x:Name="edCategory" Text="{Binding Category}"/>
 
             <TextBlock Text="Count"/>
-            <TextBox x:Name="edCount" ToolTip="Count" Foreground="{Binding Count, Converter={StaticResource dcBrush}}">
+            <TextBox x:Name="edCount" 
+                     Foreground="{Binding Count, Converter={StaticResource dcBrush}}"
+                     Validation.ErrorTemplate="{StaticResource InputErrorTemplate}">
                 <TextBox.Text>
                     <Binding Path="Count" Mode="TwoWay">
                         <Binding.ValidationRules>
@@ -64,7 +84,7 @@
             </TextBox>
 
             <TextBlock Text="Cost"/>
-            <TextBox x:Name="edCost" ToolTip="Cost">
+            <TextBox x:Name="edCost" Validation.ErrorTemplate="{StaticResource InputErrorTemplate}">
                 <TextBox.Text>
                     <Binding Path="Cost" Mode="TwoWay">
                         <Binding.ValidationRules>
