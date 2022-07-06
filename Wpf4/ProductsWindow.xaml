@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="ProductsWindow" Height="450" Width="500"
         WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <local:DoubleToColorConverter x:Key="dcBrush"/>
+
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip">
+                        <Setter.Value>
+                            <Binding Path="(Validation.Errors).CurrentItem.ErrorContent" 
+                                     RelativeSource="{x:Static RelativeSource.Self}" />
+                        </Setter.Value>
+                    </Setter>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="150"/>
@@ -29,16 +46,36 @@
             </UniformGrid.Resources>
 
             <TextBlock Text="Name"/>
-            <TextBox x:Name="edName" Text="{Binding Name}"/>
+            <TextBox x:Name="edName" 
+                     Text="{Binding Name, ValidatesOnExceptions=True, TargetNullValue=none, FallbackValue=fail}"/>
             
             <TextBlock Text="Category"/>
             <TextBox x:Name="edCategory" Text="{Binding Category}"/>
 
             <TextBlock Text="Count"/>
-            <TextBox x:Name="edCount" Text="{Binding Count}"/>
+            <TextBox x:Name="edCount" ToolTip="Count" Foreground="{Binding Count, Converter={StaticResource dcBrush}}">
+                <TextBox.Text>
+                    <Binding Path="Count" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:ProductCountRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
 
             <TextBlock Text="Cost"/>
-            <TextBox x:Name="edCost" Text="{Binding Cost}"/>
+            <TextBox x:Name="edCost" ToolTip="Cost">
+                <TextBox.Text>
+                    <Binding Path="Cost" Mode="TwoWay">
+                        <Binding.ValidationRules>
+                            <local:ProductCostRule MinProductCost ="1"/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+            <Button x:Name="btnAdd" Content="Add" Margin="10 5" Click="btnAdd_Click" Height="30"/>
+            <Button x:Name="btnDelete" Content="Delete" Margin="10 5" Click="btnDelete_Click" Height="30"/>
         </UniformGrid>
     </Grid>
 </Window>

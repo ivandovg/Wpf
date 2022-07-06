@@ -18,6 +18,9 @@ namespace Wpf4
             get => name;
             set
             {
+                if (string.IsNullOrEmpty(value))
+                    throw new ArgumentNullException();
+
                 SetChanged(ref name, value, nameof(Name));
             }
         }
