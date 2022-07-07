@@ -39,7 +39,7 @@ namespace Wpf4
 
             InitializeComponent();
 
-            lstProducts.DisplayMemberPath = "Name";
+            //lstProducts.DisplayMemberPath = "Name";
             lstProducts.ItemsSource = products;
             //if (products.Count > 0)
             //    lstProducts.SelectedIndex = 0;
