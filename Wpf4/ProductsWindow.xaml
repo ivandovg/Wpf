@@ -94,8 +94,29 @@
                 </TextBox.Text>
             </TextBox>
 
-            <Button x:Name="btnAdd" Content="Add" Margin="10 5" Click="btnAdd_Click" Height="30"/>
-            <Button x:Name="btnDelete" Content="Delete" Margin="10 5" Click="btnDelete_Click" Height="30"/>
+            <Button x:Name="btnAdd" Content="Add" Margin="10 5" Height="30" Click="btnAdd_Click"/>
+            <Button x:Name="btnDelete" Content="Delete" Margin="10 5" Height="30" Click="btnDelete_Click">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=lstProducts, Path=SelectedIndex}" Value="-1">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Content="Disabled if Error" Margin="10 5" Height="30">
+                <Button.Style>
+                    <Style>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=edCost, Path=(Validation.HasError)}" Value="True">
+                                <Setter Property="Button.IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </UniformGrid>
     </Grid>
 </Window>

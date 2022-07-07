@@ -41,8 +41,8 @@ namespace Wpf4
 
             lstProducts.DisplayMemberPath = "Name";
             lstProducts.ItemsSource = products;
-            if (products.Count > 0)
-                lstProducts.SelectedIndex = 0;
+            //if (products.Count > 0)
+            //    lstProducts.SelectedIndex = 0;
 
             Closing += ProductsWindow_Closing;
         }
