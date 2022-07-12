@@ -99,5 +99,30 @@ namespace Wpf4
             if (lstProducts.SelectedItem is Product)
                 products.Remove(lstProducts.SelectedItem as Product);
         }
+
+        private void btnEditProduct_Click(object sender, RoutedEventArgs e)
+        {
+            if (lstProducts.SelectedIndex == -1)
+                return;
+
+            if (lstProducts.SelectedItem is Product)
+            {
+                Product temp = (Product)lstProducts.SelectedItem;
+                EditProductWindow editProduct = new EditProductWindow(temp);
+                //editProduct.DataContext = temp;
+                editProduct.ShowDialog();
+            }
+        }
+
+        private void btnAddProduct_Click(object sender, RoutedEventArgs e)
+        {
+            Product temp = new Product();
+            EditProductWindow editProduct = new EditProductWindow(temp, true);
+            if (editProduct.ShowDialog() == true)
+            {
+                products.Add(temp);
+                lstProducts.SelectedIndex = products.Count - 1;
+            }
+        }
     }
 }

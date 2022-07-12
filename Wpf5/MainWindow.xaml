@@ -88,7 +88,7 @@
         <Button Content="9" Grid.Column="2" Grid.Row="2" Style="{StaticResource RedButton}"/>
     </Grid>-->
 
-    <WrapPanel>
+    <!--<WrapPanel>
         <Button Content="1 test" Style="{StaticResource StdButton}" Template="{StaticResource BtnTemplate}"/>
         <Button Content="2 test" Style="{StaticResource StdButton}"/>
         <Button Content="3 test" Style="{StaticResource StdButton}"/>
@@ -105,5 +105,13 @@
 
         <Button Content="9 test" Style="{StaticResource RedButton}">
         </Button>
-    </WrapPanel>
+    </WrapPanel>-->
+    <StackPanel>
+        <ListBox x:Name="lstIngredients" MinHeight="200" Background="Beige" Margin="5"/>
+        <DockPanel>
+            <TextBlock DockPanel.Dock="Left" Text="Enter step content" VerticalAlignment="Center"/>
+            <Button DockPanel.Dock="Right" Padding="25 5" x:Name="btnAddStepContent" Content="Add" Click="btnAddStepContent_Click" Margin="5"/>
+            <TextBox x:Name="edStepContent" AcceptsReturn="True" TextWrapping="Wrap" Height="60" Margin="5"/>
+        </DockPanel>
+    </StackPanel>
 </Window>

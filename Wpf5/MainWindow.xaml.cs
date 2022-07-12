@@ -52,5 +52,10 @@ namespace Wpf5
             Button b = (Button)sender;
             b.Background = Brushes.Black;
         }
+
+        private void btnAddStepContent_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

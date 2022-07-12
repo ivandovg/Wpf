@@ -164,6 +164,9 @@
                     </Style>
                 </Button.Style>
             </Button>
+
+            <Button x:Name="btnEditProduct" Content="Edit in new Window" Margin="10 5" Height="30" Click="btnEditProduct_Click"/>
+            <Button x:Name="btnAddProduct" Content="Add in new Window" Margin="10 5" Height="30" Click="btnAddProduct_Click"/>
         </UniformGrid>
     </Grid>
 </Window>
