@@ -30,6 +30,7 @@ namespace Wpf4
                 btnCancel.Visibility = Visibility.Visible;
 
             btnOk.IsEnabled = !string.IsNullOrEmpty(edName.Text);
+            edName.Focus();
         }
 
         private void btnOk_Click(object sender, RoutedEventArgs e)
