@@ -91,7 +91,9 @@ RadiusY="50" />
             </CombinedGeometry>
         </Path.Data>
     </Path>
-    </Grid>-->    <!--<Grid>
+    </Grid>-->
+
+    <!--<Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
             <ColumnDefinition />
@@ -161,7 +163,10 @@ RadiusY="50" />
                 </PathGeometry>
             </Path.Data>
         </Path>
-    </Grid>-->            <!--<WrapPanel ItemHeight="40" ItemWidth="80">
+    </Grid>-->
+    
+    
+    <!--<WrapPanel ItemHeight="40" ItemWidth="80">
         <WrapPanel.Resources>
             <Style TargetType="Button">
                 <Setter Property="Background" Value="Aqua"/>

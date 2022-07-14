@@ -1,0 +1,170 @@
+﻿<Window x:Class="Wpf7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <!--<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBox Name="txt" FontSize="20" FontWeight="Bold" />
+            <Rectangle RenderTransformOrigin="1,0.5" Height="40">
+                <Rectangle.Fill>
+                    <VisualBrush Visual="{Binding ElementName=txt}" />
+                </Rectangle.Fill>
+                <Rectangle.OpacityMask>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                        <GradientStop Offset="0.3" Color="Transparent" />
+                        <GradientStop Offset="1" Color="#44000000" />
+                    </LinearGradientBrush>
+                </Rectangle.OpacityMask>
+                <Rectangle.RenderTransform>
+                    <ScaleTransform ScaleY="-1" />
+                </Rectangle.RenderTransform>
+            </Rectangle>
+
+            <Button x:Name="helloButton" Content="Hello world!!!" Width="50" Click="helloButton_Click"/>
+        </StackPanel>
+
+        <Canvas Grid.Row="1" Background="LightPink">
+            <Ellipse Name="ball" Stroke="Black" Width="50" Height="50" Canvas.Left="130" Canvas.Bottom="0">
+                <Ellipse.Fill>
+                    <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.3, 0.3">
+                        <GradientStop Color="White" Offset="0" />
+                        <GradientStop Color="Blue" Offset="1" />
+                    </RadialGradientBrush>
+                </Ellipse.Fill>
+                <Ellipse.Triggers>
+                    <EventTrigger RoutedEvent="Window.Loaded">
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation Storyboard.TargetProperty="Fill.GradientStops[1].Color" 
+                                                To="Yellow" Duration="0:0:8" AutoReverse="True"
+                                                RepeatBehavior="Forever" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger>
+                </Ellipse.Triggers>
+            </Ellipse>
+        </Canvas>
+
+        <Button Grid.Row="2" x:Name="helloButton2" Foreground="White" Width="70" Height="25" Content="Кнопка">
+            <Button.Background>
+                <SolidColorBrush x:Name="buttonColor" Color="Black" />
+            </Button.Background>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation Storyboard.TargetProperty="Width"
+                                        Storyboard.TargetName="helloButton2"
+                                        From="80" To="150" AutoReverse="True"
+                                        RepeatBehavior="0:0:10" Duration="0:0:2" />
+                                <DoubleAnimation Storyboard.TargetProperty="Height"
+                                        Storyboard.TargetName="helloButton2"
+                                        From="30" To="100" AutoReverse="True"
+                                        RepeatBehavior="0:0:10" Duration="0:0:2" />
+                                <ColorAnimation Storyboard.TargetName="buttonColor"
+                                        Storyboard.TargetProperty="Color"
+                                        From="{Binding ElementName=buttonColor, Path=Color}" To="Red"
+                                        AutoReverse="True" RepeatBehavior="0:0:10"
+                                        Duration="0:0:2" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+    </Grid>-->
+
+    <!--<Canvas Background="Black">
+        <Ellipse Width="50" Height="50" Canvas.Bottom="0" Canvas.Left="120">
+            <Ellipse.Fill>
+                <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.3, 0.3">
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="Black" Offset="1" />
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingKeyFrames
+                                    Storyboard.TargetProperty="(Canvas.Bottom)"
+                                    Duration="0:0:3" AutoReverse="True"
+                                    RepeatBehavior="Forever" DecelerationRatio="1" >
+                                
+                                <LinearDoubleKeyFrame KeyTime="0%" Value="0" />
+                                <LinearDoubleKeyFrame KeyTime="33%" Value="60" />
+                                <LinearDoubleKeyFrame KeyTime="66%" Value="120" />
+                                <LinearDoubleKeyFrame KeyTime="99%" Value="180" />
+                                
+                            </DoubleAnimationUsingKeyFrames>
+                            
+                            <ColorAnimationUsingKeyFrames 
+                                Storyboard.TargetProperty="Fill.GradientStops[1].Color" 
+                                Duration="0:0:3" 
+                                RepeatBehavior="Forever" 
+                                AutoReverse="True">
+                                
+                                <ColorAnimationUsingKeyFrames.KeyFrames>
+                                    <LinearColorKeyFrame KeyTime="0:0:1" Value="Green"/>
+                                    <LinearColorKeyFrame KeyTime="0:0:2" Value="Red"/>
+                                </ColorAnimationUsingKeyFrames.KeyFrames>
+                                
+                            </ColorAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Canvas>-->
+
+    <Window.Resources>
+        <PathGeometry x:Key="geometryPath">
+            <PathFigure IsClosed="True" StartPoint="10, 10">
+                <PolyLineSegment Points="220,10 220,175 10,175" />
+            </PathFigure>
+        </PathGeometry>
+    </Window.Resources>
+    <Canvas Background="Black">
+        <Path Stroke="Red" Data="{StaticResource geometryPath}" 
+              Canvas.Top="10" Canvas.Left="10" />
+        <Ellipse Width="50" Height="50" Canvas.Top="177" Canvas.Left="120">
+            <Ellipse.Fill>
+                <RadialGradientBrush RadiusX="1" RadiusY="1" GradientOrigin="0.3, 0.3">
+                    <GradientStop Color="White" Offset="0" />
+                    <GradientStop Color="Black" Offset="1" />
+                </RadialGradientBrush>
+            </Ellipse.Fill>
+            <Ellipse.Triggers>
+                <EventTrigger RoutedEvent="Window.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimationUsingPath
+                                Storyboard.TargetProperty="(Canvas.Top)"
+                                Duration="0:0:5" RepeatBehavior="Forever"
+                                PathGeometry="{StaticResource geometryPath}"
+                                Source="Y" >
+                            </DoubleAnimationUsingPath>
+                            <DoubleAnimationUsingPath
+                                Storyboard.TargetProperty="(Canvas.Left)"
+                                Duration="0:0:5" RepeatBehavior="Forever"
+                                PathGeometry="{StaticResource geometryPath}"
+                                Source="X" >
+                            </DoubleAnimationUsingPath>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Ellipse.Triggers>
+        </Ellipse>
+    </Canvas>
+
+</Window>
